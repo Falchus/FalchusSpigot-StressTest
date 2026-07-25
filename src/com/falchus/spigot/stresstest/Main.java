@@ -51,7 +51,7 @@ public class Main extends JavaPlugin {
 			damageListener = new DamageListener();
 			joinQuitListener = new JoinQuitListener();
 			
-			SpigotTask.runTimer(() -> {
+			SpigotTask.of(() -> {
 				if (profiling) {
 					if (i % 8 == 0) {
 						int online = Bukkit.getOnlinePlayers().size();
@@ -63,7 +63,7 @@ public class Main extends JavaPlugin {
 					}
 					i++;
 				}
-			}, 1, TimeUnit.SECONDS);
+			}).runTimer(1, TimeUnit.SECONDS);
 		});
 	}
 	
