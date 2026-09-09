@@ -47,24 +47,22 @@ public class Main extends JavaPlugin {
 		instance = this;
 		lib = FalchusLibMinecraftSpigot.getInstance();
 
-		Bukkit.getScheduler().runTask(this, () -> {
-			damageListener = new DamageListener();
-			joinQuitListener = new JoinQuitListener();
-			
-			SpigotTask.of(() -> {
-				if (profiling) {
-					if (i % 8 == 0) {
-						int online = Bukkit.getOnlinePlayers().size();
-						if (previousOnline == online) {
-							Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spark profiler --stop");
-							profiling = false;
-						}
-						previousOnline = online;
+		damageListener = new DamageListener();
+		joinQuitListener = new JoinQuitListener();
+		
+		SpigotTask.of(() -> {
+			if (profiling) {
+				if (i % 8 == 0) {
+					int online = Bukkit.getOnlinePlayers().size();
+					if (previousOnline == online) {
+						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spark profiler --stop");
+						profiling = false;
 					}
-					i++;
+					previousOnline = online;
 				}
-			}).runTimer(1, TimeUnit.SECONDS);
-		});
+				i++;
+			}
+		}).runTimer(1, TimeUnit.SECONDS);
 	}
 	
 	public String getTimeElapsed() {
