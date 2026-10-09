@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import com.falchus.lib.minecraft.spigot.enums.Material;
 import com.falchus.lib.minecraft.spigot.player.elements.PlayerElement;
 import com.falchus.lib.minecraft.spigot.player.elements.impl.Actionbar;
 import com.falchus.lib.minecraft.spigot.player.elements.impl.Scoreboard;
